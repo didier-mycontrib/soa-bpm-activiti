@@ -1,0 +1,6 @@
+{timestampReferencement=2015-09-16 12:25:18, verifSiret={raisonSociale=ABCDEF, validite=?, siret=123456789}, messageReferencement=<referencement xmlns="http://data.tp/">
+  <siret>123456789</siret>
+  <raisonSociale>ABCDEF</raisonSociale>
+  <email>user1@localhost</email>
+  <statut>?</statut>
+</referencement>, referencement={raisonSociale=ABCDEF, siret=123456789, email=user1@localhost, statut=?}}

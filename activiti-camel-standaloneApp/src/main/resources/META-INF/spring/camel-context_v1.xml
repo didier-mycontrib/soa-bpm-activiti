@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:camel="http://camel.apache.org/schema/spring" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://camel.apache.org/schema/spring	http://camel.apache.org/schema/spring/camel-spring-2.13.2.xsd">
+	
+	<import resource="service-activiti-spring.xml" />
+	<import resource="specific-activiti-spring.xml" />
+	
+	<!-- 
+	<bean id="processByBeanXy" class="tp.camel.bean.ProcessorBeanXy" />
+	-->
+	<!-- lancement possible via mvn camel:run -->
+	
+	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
+	
+	 <endpoint id="dossierIn" uri="file:data/in"></endpoint>
+	 <endpoint id="dossierOutDefault" uri="file:data/outDefault"></endpoint>
+	 
+	 <route>
+	 
+	 <!-- 
+	  <from uri="file:data/in" />  
+	  <convertBodyTo type="java.lang.String"/> 
+	  <to uri="activiti:myProcess" />
+	  start an instance of "myProcess" (definition key in myProcess.bpmn)
+	  with a variable "camelBody" of type "java.lang.String" with the value of the file content
+	  -->
+	 
+	  
+	  <from uri="file:data/in" />  <!--  ou bien <from ref="dossierIn" /> -->
+	  <convertBodyTo type="java.lang.String"/> 
+	 <!-- <setProperty propertyName="PROCESS_KEY_PROPERTY" ><simple>${file:name}</simple> </setProperty> -->
+	 <to uri="activiti:myProcess" /> <!-- activiti:ProcessName:ServiceName -->
+	  <!-- <to ref="dossierOutDefault"/> -->
+	 
+	 </route>	
+	 
+	</camelContext>
+</beans>

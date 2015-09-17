@@ -11,12 +11,7 @@
   <artifactId>activiti-webApp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <repositories>
-   <repository>
-    <id>Alfresco_Maven_Repository</id>
-    <url>http://maven.alfresco.com/nexus/content/groups/public/</url>
-  </repository>
-  </repositories>
+  
   
   
    <properties>
@@ -25,7 +20,7 @@
    		 <org.springframework.security.version>3.2.5.RELEASE</org.springframework.security.version>
    		 <org.apache.myfaces.version>2.2.5</org.apache.myfaces.version> <!-- 2.1.5 , 2.2.5 -->
    		 <org.apache.cxf.version>3.0.2</org.apache.cxf.version>
-   		 	        	      	    
+   		 <activiti.version>5.18.0</activiti.version>	        	      	    
 	</properties>
 	
 	<dependencies>
@@ -33,7 +28,12 @@
 	 <dependency>
     <groupId>tp</groupId>
     <artifactId>generic-bpm-utils-activiti</artifactId>
-    <!-- indirectly <artifactId>generic-bpm-utils-abstract</artifactId> -->
+    <version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  
+   <dependency>
+    <groupId>tp</groupId>
+    <artifactId>generic-activiti-usertask-jsf-web-fragment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </dependency>
   
@@ -60,13 +60,13 @@
    <dependency>
   <groupId>org.activiti</groupId>
   <artifactId>activiti-engine</artifactId>
-  <version>5.14</version>
+  <version>${activiti.version}</version>
 </dependency>
 
  <dependency>
   <groupId>org.activiti</groupId>
   <artifactId>activiti-spring</artifactId>
-  <version>5.14</version>
+  <version>${activiti.version}</version>
 </dependency>       
 
    <dependency> 
@@ -292,7 +292,7 @@
 		<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<!-- <version>3.2</version> -->
+				<version>3.3</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>

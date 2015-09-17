@@ -1,0 +1,4 @@
+2015-09-04 08:46:10,555 INFO main org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean - Creating Service {http://services.process.tp/}AxbServiceImplService from class tp.process.services.AxbPortType
+2015-09-04 09:04:10,611 INFO main org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean - Creating Service {http://services.process.tp/}AxbServiceImplService from class tp.process.services.AxbPortType
+2015-09-04 09:47:15,103 INFO main org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean - Creating Service {http://services.process.tp/}AxbServiceImplService from class tp.process.services.AxbPortType
+2015-09-04 09:51:19,259 INFO main org.apache.cxf.wsdl.service.factory.ReflectionServiceFactoryBean - Creating Service {http://services.process.tp/}AxbServiceImplService from class tp.process.services.AxbPortType

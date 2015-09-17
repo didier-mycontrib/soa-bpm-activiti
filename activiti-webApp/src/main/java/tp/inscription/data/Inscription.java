@@ -12,6 +12,15 @@ public class Inscription implements Serializable{
 	private String name;
 	private String adresse;
 	
+	
+	
+	public Inscription() {
+		super();
+		numInscription=0;
+		email="unknown@nowhere.com";
+		name="unknown";
+		adresse="homeless";
+	}
 	public Integer getNumInscription() {
 		return numInscription;
 	}

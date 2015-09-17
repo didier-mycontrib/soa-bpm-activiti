@@ -1,0 +1,6 @@
+<referencement xmlns="http://data.tp/">
+  <siret>123</siret>
+  <raisonSociale>MyCompany</raisonSociale>
+  <email>user1@localhost</email>
+  <statut>??</statut>
+</referencement>

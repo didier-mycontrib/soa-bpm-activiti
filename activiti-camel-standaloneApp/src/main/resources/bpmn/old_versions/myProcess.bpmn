@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <message id="requestMsg" name="requestMsg"></message>
+  <message id="notifMsg" name="notifMsg"></message>
+  <process id="myProcess" name="myProcess" isExecutable="true">
+    <startEvent id="messagestartevent1" name="Message start">
+      <messageEventDefinition messageRef="requestMsg"></messageEventDefinition>
+    </startEvent>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <scriptTask id="scripttask1" name="display" scriptFormat="groovy" activiti:autoStoreVariables="false">
+      <script>out.println("camel-activiti is started");
+genericActions.dumpAllVariables(execution);</script>
+    </scriptTask>
+    <sequenceFlow id="flow1" sourceRef="messagestartevent1" targetRef="scripttask1"></sequenceFlow>
+    <scriptTask id="scripttask2" name="display2" scriptFormat="groovy" activiti:autoStoreVariables="false">
+      <script>out.println("suite et fin ");
+genericActions.dumpAllVariables(execution);</script>
+    </scriptTask>
+    <sequenceFlow id="flow4" sourceRef="scripttask2" targetRef="endevent1"></sequenceFlow>
+    <receiveTask id="receiveNotif" name="receive Notif"></receiveTask>
+    <sequenceFlow id="flow5" sourceRef="scripttask1" targetRef="sendViaCamel"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="receiveNotif" targetRef="scripttask2"></sequenceFlow>
+    <boundaryEvent id="boundarytimer1" name="Timer" attachedToRef="receiveNotif" cancelActivity="true">
+      <timerEventDefinition>
+        <timeDuration>PT1M</timeDuration>
+      </timerEventDefinition>
+    </boundaryEvent>
+    <scriptTask id="scripttask3" name="timeout" scriptFormat="groovy" activiti:autoStoreVariables="false">
+      <script>out.println("timeout");</script>
+    </scriptTask>
+    <sequenceFlow id="flow7" sourceRef="boundarytimer1" targetRef="scripttask3"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="scripttask3" targetRef="endevent1"></sequenceFlow>
+    <serviceTask id="sendViaCamel" name="Send subRequest via camel" activiti:type="camel"></serviceTask>
+    <sequenceFlow id="flow9" sourceRef="sendViaCamel" targetRef="receiveNotif"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_myProcess">
+    <bpmndi:BPMNPlane bpmnElement="myProcess" id="BPMNPlane_myProcess">
+      <bpmndi:BPMNShape bpmnElement="messagestartevent1" id="BPMNShape_messagestartevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="60.0" y="40.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="870.0" y="116.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
+        <omgdc:Bounds height="55.0" width="105.0" x="110.0" y="115.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask2" id="BPMNShape_scripttask2">
+        <omgdc:Bounds height="55.0" width="105.0" x="660.0" y="71.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="receiveNotif" id="BPMNShape_receiveNotif">
+        <omgdc:Bounds height="55.0" width="105.0" x="403.0" y="36.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="boundarytimer1" id="BPMNShape_boundarytimer1">
+        <omgdc:Bounds height="30.0" width="30.0" x="463.0" y="86.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="scripttask3" id="BPMNShape_scripttask3">
+        <omgdc:Bounds height="55.0" width="105.0" x="456.0" y="169.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sendViaCamel" id="BPMNShape_sendViaCamel">
+        <omgdc:Bounds height="76.0" width="111.0" x="260.0" y="115.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="77.0" y="75.0"></omgdi:waypoint>
+        <omgdi:waypoint x="162.0" y="115.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="765.0" y="98.0"></omgdi:waypoint>
+        <omgdi:waypoint x="887.0" y="116.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="215.0" y="142.0"></omgdi:waypoint>
+        <omgdi:waypoint x="260.0" y="153.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="508.0" y="63.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="98.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="478.0" y="116.0"></omgdi:waypoint>
+        <omgdi:waypoint x="508.0" y="169.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="561.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="726.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="887.0" y="151.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="315.0" y="115.0"></omgdi:waypoint>
+        <omgdi:waypoint x="455.0" y="91.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

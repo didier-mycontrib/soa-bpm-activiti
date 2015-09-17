@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- NB : ce fichier est un complement pour service-activiti-spring.xml  -->
+
+
+
+<bean id="autoBpmLoader" class="generic.bpm.util.activiti.AutoBpmnLoaderHelper" init-method="loadBpmnDefinitions">
+		<property name="processManager" ref="myActivitiProcessManager"/>
+		<property name="bpmnFileNameList">
+			<list>
+			   <value>bpmn/MyProcess.bpmn</value>
+			   <value>bpmn/processReferencement.bpmn</value>
+			</list>
+		</property>
+</bean>
+	
+	
+	
+</beans>

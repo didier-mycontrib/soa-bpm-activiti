@@ -1,0 +1,5 @@
+<verifSiret xmlns="http://data.tp/">
+  <raisonSociale>MyCompany</raisonSociale>
+  <siret>123</siret>
+  <validite>ok</validite>
+</verifSiret>

@@ -12,7 +12,7 @@ public class CallWsInscription {
 		nouvelleInscription.setEmail("user1@localhost");
 		nouvelleInscription.setName("user1 (power user");
 		nouvelleInscription.setAdresse("2 rue Elle 75000 Par ici");
-		String result = (String) dynReflectSoapClient.dynSoapCall("http://localhost:8080/activiti-webApp/services/serviceIncription",
+		String result = (String) dynReflectSoapClient.dynSoapCall("http://localhost:8080/activiti-webApp/services/serviceInscription",
 				                        "tp.inscription.service.ServiceInscription", 
 				                        "traiterInscription", nouvelleInscription);
 	   System.out.println("result:"+result);

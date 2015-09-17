@@ -4,7 +4,7 @@ pour utiliser et tester cette application il faut :
 2)  pour tester le processus "activiti_incr_pers_age_via_ws.bpmn" qui appelle la méthode addition du
     web service soap "wsCalculateur" de façon à incrémenter l'age d'une personne
     avant de l'afficher et déterminer si cette personne est mineure ou majeure  , 
-  il suffit de démarrer le test (javaApp/main) tp.test.DirectActivitiTestApp
+  il suffit de démarrer le test (javaApp/main) tp.test.IncrementPersWithWsTestApp
   [pour cette partie d'application en mode texte , il n'est pas nécessaire de lancer "activiti-webApp"
   sous tomcat ]
 
@@ -12,9 +12,10 @@ pour utiliser et tester cette application il faut :
 
 3) pour tester le processus "test_async_activiti_jms.bpmn" qui envoie via JMS
   deux demandes de conges  et qui attend et affiche les réponses , 
-  il suffit de démarrer le test (javaApp/main) tp.test.DirectAsyncActivitiTestApp
+  il suffit de démarrer le test (javaApp/main) tp.test.AsyncJmsTestApp
   [pour cette partie d'application en mode texte , il n'est pas nécessaire de lancer "activiti-webApp"
-  sous tomcat ]
+  sous tomcat MAIS IL FAUT QUE wsCalculateur.war soit lancé sous tomcat avec la partie Jms activée 
+              ET avec le serveur activeMQ lancé en tâche de fond ]
   
 4) pour tester les autres parties de l'application "activiti-webApp" , il faut que celle ci soit lancée/démarrée sous tomcat
 
