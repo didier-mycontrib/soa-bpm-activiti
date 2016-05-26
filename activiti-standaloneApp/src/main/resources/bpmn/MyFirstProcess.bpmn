@@ -12,21 +12,21 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_myFirstProcess">
     <bpmndi:BPMNPlane bpmnElement="myFirstProcess" id="BPMNPlane_myFirstProcess">
       <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="50.0" y="110.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="20.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
-        <omgdc:Bounds height="35.0" width="35.0" x="420.0" y="160.0"></omgdc:Bounds>
+        <omgdc:Bounds height="35.0" width="35.0" x="270.0" y="54.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="scripttask1" id="BPMNShape_scripttask1">
-        <omgdc:Bounds height="55.0" width="105.0" x="230.0" y="130.0"></omgdc:Bounds>
+        <omgdc:Bounds height="55.0" width="105.0" x="120.0" y="30.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
-        <omgdi:waypoint x="85.0" y="127.0"></omgdi:waypoint>
-        <omgdi:waypoint x="230.0" y="157.0"></omgdi:waypoint>
+        <omgdi:waypoint x="65.0" y="37.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="57.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
-        <omgdi:waypoint x="335.0" y="157.0"></omgdi:waypoint>
-        <omgdi:waypoint x="420.0" y="177.0"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="57.0"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="71.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

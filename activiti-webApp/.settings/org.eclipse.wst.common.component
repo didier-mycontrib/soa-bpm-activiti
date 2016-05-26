@@ -7,6 +7,9 @@
         <dependent-module archiveName="generic-bpm-utils-activiti-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/generic-bpm-utils-activiti/generic-bpm-utils-activiti">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="generic-activiti-usertask-jsf-web-fragment-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/generic-activiti-usertask-jsf-web-fragment/generic-activiti-usertask-jsf-web-fragment">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="generic-async-util-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/generic-async-util/generic-async-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
